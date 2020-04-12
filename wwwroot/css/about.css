@@ -1,0 +1,334 @@
+**
+
+Sample css code
+
+*/
+/* Set height to 100% for body and html to enable the background image to cover the whole page: */
+/*body,
+
+html {
+
+  height: 100%;
+
+}*/
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%
+}
+
+
+
+body {
+    width: 100%;
+    height: 100vh;
+    background: url('grey.jpeg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: table;
+    font-family: Quicksand;
+}
+
+
+
+.nav {
+    position: relative;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 80px;
+}
+
+
+
+.left {
+    float: left;
+    padding: 1em 3em;
+}
+
+
+
+    .left ul {
+        list-style: none;
+    }
+
+
+
+        .left ul li {
+            display: inline-block;
+        }
+
+
+
+
+
+            .left ul li a {
+                text-decoration: none;
+                color: black;
+                font-weight: 500;
+                padding: 8px 16px;
+            }
+
+
+
+    .left li:nth-child(1) a {
+        border: 1px solid beige;
+        border-radius: 4px;
+    }
+
+
+
+    .left li:nth-child(2) a {
+        border: 1px solid beige;
+        border-radius: 4px;
+    }
+
+
+
+    .left .mod {
+        background-image: linear-gradient(to right,#3498db,#fff);
+        background-size: 200%;
+        transition: 0.8s all;
+    }
+
+
+
+        .left .mod:hover {
+            background-position: -100%;
+        }
+
+
+
+.header {
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+
+
+    .header h1 {
+        color: #780a0a;
+        font-size: 30px;
+        font-family: 'Lucida Bright';
+        background-image: linear-gradient(to right,#3498db,#faf096);
+        background-size: 200%;
+        transition: 0.8s all;
+    }
+
+
+
+        .header h1 .mod {
+            background-position: -100%;
+        }
+
+
+
+.team {
+    overflow: hidden;
+    text-align: center;
+    padding: 60px;
+}
+
+
+
+
+
+
+
+
+
+    .team h1 {
+        color: #fff;
+        font-size: 50px;
+        font-family: 'Brush Script MT';
+    }
+
+
+
+
+
+
+
+
+
+
+
+.border {
+    display: block;
+    margin: auto;
+    width: 160px;
+    height: 3px;
+    background: #3498db;
+    margin-bottom: 40px;
+}
+
+
+
+.ps {
+    margin-bottom: 40px;
+}
+
+
+
+    .ps a {
+        display: inline-block;
+        margin: 0 30px;
+        width: 200px;
+        height: 200px;
+        overflow: hidden;
+        border-radius: 50%;
+    }
+
+
+
+        .ps a img {
+            width: 100%;
+            filter: grayscale(100%);
+            transition: 0.4s all;
+        }
+
+
+
+        .ps a:hover > img {
+            filter: none;
+        }
+
+
+
+.section {
+    width: 300px;
+    margin: auto;
+    font-size: 20px;
+    color: beige;
+    text-align: justify;
+    height: 0;
+    overflow: hidden;
+}
+
+
+
+    .section:target {
+        height: auto;
+    }
+
+
+
+    .section p {
+        font-family: cursive;
+        font-size: 20px;
+        border: 1px solid beige;
+        border-radius: 4px;
+    }
+
+
+
+.name {
+    display: block;
+    margin-bottom: 30px;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 23px;
+    font-family: 'Bookman Old Style';
+    color: aquamarine;
+}
+
+
+
+
+
+
+
+
+
+/*Set background image*/
+
+.container {
+    background-image: url('https://doc-10-ao-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/r085o9ungppbiokopob2sfbekae4uqbb/1537920000000/14802840322886517493/*/110cT8sl-pOiHGgj9yToPkAqAzrr-RNfb');
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+
+
+/* Position text in the middle */
+
+.middle {
+    position: absolute;
+    color: beige;
+    top: 70%;
+    left: 39%;
+    text-align: center;
+    font-size: 25px;
+}
+
+
+
+    /*Set circle in unordered list*/
+
+    .middle ul {
+        list-style-type: circle;
+    }
+
+
+
+        /*Set text inside li tag to left*/
+
+        .middle ul li {
+            text-align: left !important;
+        }
+
+
+
+            /*Set text color for a tag inside middle class and ul>li element*/
+
+            .middle ul li a {
+                color: beige;
+            }
+
+
+
+                /*Change text color and decoration for a tags inside middle class and ul>li element*/
+
+                .middle ul li a:hover {
+                    color: red;
+                    text-decoration: none;
+                }
+
+
+
+
+
+.main-nav {
+    float: right;
+    list-style: none;
+    margin-top: 30px;
+}
+
+
+
+.wrapper {
+    margin: 0 auto;
+    width: 1000px;
+}
+
+
+
+.img-about {
+    width: 300px;
+}
+
+.proj {
+    position: absolute;
+    width: 600px;
+    height: 300px;
+    color: beige;
+    margin: 7% 9%;
+    text-align: left;
+}

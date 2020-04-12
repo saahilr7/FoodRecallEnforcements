@@ -1,0 +1,119 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%
+}
+
+
+
+body {
+    width: 100%;
+    height: 100vh;
+    background: url('img4.jpeg');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: table;
+    font-family: Quicksand;
+}
+
+
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+
+
+.table-title {
+    padding: 20px 10px 10px 10px;
+    text-align: center;
+}
+
+
+
+
+
+.nav {
+    position: center;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 80px;
+}
+
+
+
+.left {
+    float: left;
+    padding: 1em 3em;
+}
+
+
+
+    .left ul {
+        list-style: none;
+    }
+
+
+
+        .left ul li {
+            display: inline-block;
+        }
+
+
+
+
+
+            .left ul li a {
+                text-decoration: none;
+                color: black;
+                font-weight: 500;
+                padding: 8px 16px;
+            }
+
+
+
+    .left li:nth-child(1) a {
+        border: 1px solid beige;
+        border-radius: 4px;
+    }
+
+
+
+    .left li:nth-child(2) a {
+        border: 1px solid beige;
+        border-radius: 4px;
+    }
+
+
+
+    .left .mod {
+        background-image: linear-gradient(to right,#3498db,#dddddd);
+        background-size: 200%;
+        transition: 0.8s all;
+    }
+
+
+
+        .left .mod:hover {
+            background-position: -100%;
+        }

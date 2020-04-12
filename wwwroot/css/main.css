@@ -1,0 +1,67 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%
+}
+
+
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    background-color: aquamarine;
+    background-image: url(honey.png);
+    font-size: 16px;
+    /*display: table;
+    font-family: Quicksand;*/
+}
+
+
+
+.box {
+    height: 110vh;
+    width: 100%;
+    background-image: url(img0.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transition: 2s;
+    /*padding: 200px 300px;*/
+    font-size: 15px;
+
+    animation-name: animate;
+    animation-direction: alternate-reverse;
+    animation-duration: 20s;
+    animation-fill-mode: forwards;
+    animation-iteration-count: infinite;
+    animation-play-state:  running;
+    animation-timing-function:ease-out;
+}
+
+@keyframes animate {
+    0% {
+        background-image: url(img3.jpeg);
+    }
+
+    20% {
+        background-image: url(img0.jpg);
+    }
+
+    40% {
+        background-image: url(covid19.jpg);
+    }
+
+    60% {
+        background-image: url(fda2.jpg);
+    }
+
+    80% {
+        background-image: url(fda3.png);
+    }
+
+    100% {
+        background-image: url(fda4.jpg);
+    }
+}

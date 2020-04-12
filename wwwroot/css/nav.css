@@ -1,0 +1,218 @@
+﻿**
+
+Sample css code
+
+*/
+/* Set height to 100% for body and html to enable the background image to cover the whole page: */
+/*body,
+
+html {
+
+  height: 100%;
+
+}*/
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%
+}
+
+
+
+body {
+    width: 100%;
+    height: 100vh;
+    /*background: url('img2.jpg');*/
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    display: table;
+    font-family: Quicksand;
+}
+
+
+
+.nav {
+    position: center;
+    top: 0;
+    left: 0;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 80px;
+}
+
+.jt {
+    display: flex;
+    list-style: none;
+    width: 50%;
+    height: 100%;
+    justify-content:normal;
+    align-items: center;
+    margin-left: auto;
+}
+
+.jt li a  {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+
+.left {
+    float: left;
+    padding: 1em 3em;
+}
+
+
+
+    .left ul {
+        list-style: none;
+    }
+
+
+
+        .left ul li {
+            display: inline-block;
+        }
+
+
+
+
+
+            .left ul li a {
+                text-decoration: none;
+                color: black;
+                font-weight: 500;
+                padding: 8px 16px;
+            }
+
+
+
+    .left li:nth-child(1) a {
+        border: 1px solid beige;
+        border-radius: 4px;
+    }
+
+
+
+    .left li:nth-child(2) a {
+        border: 1px solid beige;
+        border-radius: 4px;
+    }
+
+
+
+    .left .mod {
+        background-image: linear-gradient(to right,#3498db,aliceblue);
+        background-size: 200%;
+        transition: 0.8s all;
+    }
+
+
+
+        .left .mod:hover {
+            background-position: -100%;
+        }
+
+
+        
+li, a {
+    font-family:sans-serif;
+    font-weight;
+    font-size: 16 px;
+    color:aliceblue;
+    text-decoration:none;
+}
+
+.logo {
+    width: 100px;
+    float: left;
+    height:unset;
+    cursor: pointer;
+}
+
+.nav__links {
+    display: inline-block;
+    padding: 0px 20px;
+}
+
+button {
+    padding: 9px 25 px;
+    background-color: darkred ;
+    border:none;
+    border-radius:50px;
+    cursor:pointer;
+    transition: all 0.3s ease 0s;
+}
+
+button:hover {
+    background-color: rebeccapurple;
+}
+
+.header {
+    display: flex;
+    
+    text-align: center;
+    padding: 30px 10%;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    background-color: mediumpurple;
+}
+
+
+/*.bgtop {
+        background-color: yellow;
+    }*/
+
+
+
+    .header h1 {
+        color: #780a0a;
+        font-size: 30px;
+        font-family: 'Lucida Bright';
+        background-image: linear-gradient(to right,#3498db,#faf096);
+        background-size: 200%;
+        transition: 0.8s all;
+    }
+
+
+
+        .header h1 .mod {
+            background-position: -100%;
+        }
+
+
+
+
+
+.container {
+    background-image: url('https://doc-10-ao-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/r085o9ungppbiokopob2sfbekae4uqbb/1537920000000/14802840322886517493/*/110cT8sl-pOiHGgj9yToPkAqAzrr-RNfb');
+    height: 100%;
+    background-position: center;
+    background-size: cover;
+}
+
+
+
+
+
+
+
+.main-nav {
+    float: right;
+    list-style: none;
+    margin-top: 30px;
+}
+
+
+
+.wrapper {
+    margin: 0 auto;
+    width: 1000px;
+}
+
+
+
