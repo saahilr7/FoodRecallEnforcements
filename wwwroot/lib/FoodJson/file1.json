@@ -1,0 +1,42 @@
+{
+    "meta": {
+        "disclaimer": "Do not rely on openFDA to make decisions regarding medical care. While we make every effort to ensure that data is accurate, you should assume all results are unvalidated. We may limit or otherwise restrict your access to the API in line with our Terms of Service.",
+        "terms": "https://open.fda.gov/terms/",
+        "license": "https://open.fda.gov/license/",
+        "last_updated": "2019-12-14",
+        "results": {
+            "skip": 0,
+            "limit": 1,
+            "total": 4024
+        }
+    },
+    "results": [
+        {
+            "country": "United States",
+            "city": "Medford",
+            "reason_for_recall": "Product received from supplier is being recalled due to the potential to be contaminated with Salmonella",
+            "address_1": "2500 S Pacific Hwy",
+            "address_2": "",
+            "code_info": "Best By Date on the recalled nut products - 01MAY11 through 24SEPT13.    The lot code format for the baskets is DDDYM(H or C), with DDD representing the Julian date, Y representing the year, and letter M, H or C representing the production facility, printed on the shipping container.  The affected lots would have been between 1460M(H or C) to 2682M(H or C).",
+            "product_quantity": "15,264 - 12 oz. jars",
+            "center_classification_date": "20121026",
+            "distribution_pattern": "Nationwide and Canada through online ordering www.harryanddavid.com/h/home and through retail stores located throught the U.S.",
+            "state": "OR",
+            "product_description": "Harry & David Creamy Raspberry Peanut Spread, 12 oz. jars, labeled in part: \"HARRY & DAVID CREAMY RASPBERRY PEANUT SPREAD***NET WT. 12 OZ. (340g)***INGREDIENTS: ROASTED PEANUTS, SUGAR, RASPBERRY COMPOUND***MADE FOR: HARRY AND DAVID MEDFORD, OR 97501***7 80994 73872 0***\"    The 12 oz. jars are sold individually and also as gift add-ons for gift baskets.     The gift baskets are listed below:    Harry & David Apple Snack Box;  Wolferman's Bee Sweet Gift Basket;  Wolferman's Hearty Snack Gift Basket;  Wolferman's All-Day Assortment Gift Basket;  Wolferman's Fathers Day Basket",
+            "report_date": "20121107",
+            "classification": "Class I",
+            "openfda": {},
+            "recall_number": "F-0562-2013",
+            "recalling_firm": "Harry and David Operations, Inc.",
+            "initial_firm_notification": "Two or more of the following: Email, Fax, Letter, Press Release, Telephone, Visit",
+            "event_id": "63306",
+            "product_type": "Food",
+            "termination_date": "20130314",
+            "more_code_info": null,
+            "recall_initiation_date": "20120927",
+            "postal_code": "97501-8724",
+            "voluntary_mandated": "Voluntary: Firm initiated",
+            "status": "Terminated"
+        }
+    ]
+}
