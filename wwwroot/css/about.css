@@ -17,10 +17,17 @@ html, body {
     width: 100%
 }
 
+#whitetext {
+    color: aliceblue;
+}
+
+#hdcol {
+    color:aqua;
+}
 
 
 body {
-    width: 100%;
+    min-width: 100%;
     height: 100vh;
     background: url('grey.jpeg');
     background-repeat: no-repeat;
@@ -28,6 +35,7 @@ body {
     background-size: cover;
     display: table;
     font-family: Quicksand;
+    overflow-x: scroll;
 }
 
 
@@ -249,11 +257,12 @@ body {
 /*Set background image*/
 
 .container {
-    background-image: url('https://doc-10-ao-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/r085o9ungppbiokopob2sfbekae4uqbb/1537920000000/14802840322886517493/*/110cT8sl-pOiHGgj9yToPkAqAzrr-RNfb');
-    height: 100%;
+    /*background-image: url('https://doc-10-ao-docs.googleusercontent.com/docs/securesc/ha0ro937gcuc7l7deffksulhg5h7mbp1/r085o9ungppbiokopob2sfbekae4uqbb/1537920000000/14802840322886517493/*/110cT8sl-pOiHGgj9yToPkAqAzrr-RNfb');
+    height: 200%;
     background-position: center;
-    background-size: cover;
+    background-size: cover;*/
 }
+
 
 
 

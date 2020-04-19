@@ -8,7 +8,7 @@
         Enforcements
         <hr />
 
-        @foreach (var item in Model)
+        @*@foreach (var item in Model)
         {
             <div>
                 <h3>
@@ -29,8 +29,54 @@
                 @item.reason_for_recall
             </div>
 
-        }
+        }*@
+    <html>
+    <head>
 
+        <title>Enforcement Details</title>
+
+        <link href="~/css/hazard.css" rel="stylesheet" type="text/css" />
+
+    </head>
+    <table class="table" align="center">
+
+        <tr>
+            <th> Recall Number </th>
+            <th> Recalling Firm </th>
+            <th> Classification </th>
+            <th> Reason For Recall </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+    <tr>
+
+
+
+
+        <td>  @item.recall_number </td>
+
+
+
+        <td>   @item.recalling_firm </td>
+
+
+
+        <td>
+            @item.classification
+        </td>
+
+
+        <td>
+            @item.reason_for_recall
+        </td>
+
+    </tr>
+
+                }
+            
+        </table>
+    </html>
         <script>
     alertDbSave(@ViewBag.dbSuccessComp);
         </script>
