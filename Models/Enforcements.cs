@@ -8,7 +8,9 @@ namespace FoodRecallEnforcements.Models
 {
     public class Enforcement
     {
-       
+            [Key]
+            public int EnforcementId { get; set; }
+
             public string country { get; set; }
             public string city { get; set; }
             public string reason_for_recall { get; set; }
@@ -24,7 +26,7 @@ namespace FoodRecallEnforcements.Models
             public string classification { get; set; }
             //public Openfda openfda { get; set; }
 
-            [Key]
+            
             public string recall_number { get; set; }
             public string recalling_firm { get; set; }
             public string initial_firm_notification { get; set; }

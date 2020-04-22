@@ -11,6 +11,7 @@ using FoodRecallEnforcements.APIHandlerManager;
 using Newtonsoft.Json;
 using Microsoft.EntityFrameworkCore;
 using FoodRecallEnforcements.DataAccess;
+using System.Net.Http;
 
 namespace FoodRecallEnforcements.Controllers
 {
@@ -62,13 +63,30 @@ namespace FoodRecallEnforcements.Controllers
 
         public IActionResult SaveEnforcement()
         {
-            APIHandler webHandler = new APIHandler();
-            Enforcements enforcements = webHandler.GetEnforcements();
+            HttpClient httpClient;
 
-            foreach (Enforcement enforcement in enforcements.results)
+            httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Accept.Clear();
+            //httpClient.DefaultRequestHeaders.Add("X-Api-Key", API_KEY);
+            httpClient.DefaultRequestHeaders.Accept.Add(
+                new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+
+
+            APIHandler webHandler = new APIHandler();
+
+            for(int i = 0; i < 19000; i+=100)
             {
-                dbContext.Enforcements.Add(enforcement);
+                Enforcements enforcements = webHandler.GetEnforcements(i,httpClient);
+
+                foreach (Enforcement enforcement in enforcements.results)
+                {
+                    if (dbContext.Enforcements.Where(c => c.report_date.Equals(enforcement.report_date)).Count() == 0)
+                    {
+                        dbContext.Enforcements.Add(enforcement);
+                    }
+                }
             }
+
             dbContext.SaveChanges();
             return View();
         }
