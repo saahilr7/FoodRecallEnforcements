@@ -1,0 +1,169 @@
+﻿@model IEnumerable<FoodRecallEnforcements.Models.Enforcement>
+
+@{
+    ViewData["Title"] = "orderbycity";
+}
+
+<h1>orderbycity</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EnforcementId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.city)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.reason_for_recall)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.address_1)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.address_2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.code_info)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.product_quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.center_classification_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.distribution_pattern)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.state)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.product_description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.report_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.classification)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.recall_number)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.recalling_firm)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.initial_firm_notification)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.event_id)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.product_type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.termination_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.recall_initiation_date)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.postal_code)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.voluntary_mandated)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EnforcementId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.city)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.reason_for_recall)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.address_1)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.address_2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.code_info)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.center_classification_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.distribution_pattern)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.state)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.report_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.classification)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.recall_number)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.recalling_firm)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.initial_firm_notification)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.event_id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.termination_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.recall_initiation_date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.postal_code)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.voluntary_mandated)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                @Html.ActionLink("Order By City Name", "oderbycity")
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

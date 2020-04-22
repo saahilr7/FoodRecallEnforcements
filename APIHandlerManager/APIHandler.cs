@@ -21,18 +21,18 @@ namespace FoodRecallEnforcements.APIHandlerManager
         static string BASE_URL = "https://api.fda.gov/food/enforcement.json?";
         static string API_KEY = "CABrC4KLzBtLHUZZY1atwU5eNdyb3AplHf3YE5Sn"; //Add your API key here inside ""
 
-        HttpClient httpClient;
+        //HttpClient httpClient;
 
         /// <summary>
         ///  Constructor to initialize the connection to the data source
         /// </summary>
         public APIHandler()
         {
-            httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Accept.Clear();
-          //httpClient.DefaultRequestHeaders.Add("X-Api-Key", API_KEY);
-            httpClient.DefaultRequestHeaders.Accept.Add(
-                new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
+            //httpClient = new HttpClient();
+            //httpClient.DefaultRequestHeaders.Accept.Clear();
+            ////httpClient.DefaultRequestHeaders.Add("X-Api-Key", API_KEY);
+            //httpClient.DefaultRequestHeaders.Accept.Add(
+            //    new System.Net.Http.Headers.MediaTypeWithQualityHeaderValue("application/json"));
         }
 
         /// <summary>
@@ -41,14 +41,14 @@ namespace FoodRecallEnforcements.APIHandlerManager
         /// JsonConvert parses the JSON string into classes
         /// </summary>
         /// <returns></returns>
-        public Enforcements GetEnforcements()
+        public Enforcements GetEnforcements(int num,HttpClient httpClient)
         {
-            string FOOD_RECALL_API_PATH = BASE_URL + "api_key=" + API_KEY + "&search=report_date:[20000101+TO+20200410]&limit=100";
+            string FOOD_RECALL_API_PATH = BASE_URL + "api_key=" + API_KEY + "&search=report_date:[20040101+TO+20200410]&limit=100&skip="+ num;
             string enforcementData = "";
 
             Enforcements enforcement = null;
 
-            httpClient.BaseAddress = new Uri(FOOD_RECALL_API_PATH);
+            //httpClient.BaseAddress = new Uri(FOOD_RECALL_API_PATH);
 
             // It can take a few requests to get back a prompt response, if the API has not received
             //  calls in the recent past and the server has put the service on hibernation
