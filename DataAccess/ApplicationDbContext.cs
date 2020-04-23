@@ -14,6 +14,17 @@ namespace FoodRecallEnforcements.DataAccess
 
         }
 
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+        //}
+
         public DbSet<Enforcement> Enforcements { get; set; }
+
+        public DbSet<Location> Locations { get; set; }
+
+        public DbSet<Recall> Recalls { get; set; }
+
+        public DbSet<Classification> Classifications { get; set; }
     }
 }

@@ -10,7 +10,6 @@ namespace FoodRecallEnforcements.Models
     {
             [Key]
             public int EnforcementId { get; set; }
-
             public string country { get; set; }
             public string city { get; set; }
             public string reason_for_recall { get; set; }

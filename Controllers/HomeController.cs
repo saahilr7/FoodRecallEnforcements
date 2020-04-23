@@ -74,7 +74,7 @@ namespace FoodRecallEnforcements.Controllers
 
             APIHandler webHandler = new APIHandler();
 
-            for(int i = 0; i < 19000; i+=100)
+            for(int i = 0; i < 18000; i+=100)
             {
                 Enforcements enforcements = webHandler.GetEnforcements(i,httpClient);
 
@@ -90,6 +90,59 @@ namespace FoodRecallEnforcements.Controllers
             dbContext.SaveChanges();
             return View();
         }
+
+        public IActionResult DbConnect()
+        {
+            IList<Enforcement> enforcement = dbContext.Enforcements.ToList();
+            
+
+            for (var i=0; i < enforcement.Count; i++) {
+                Recall re = new Recall();
+                Location loc = new Location();
+                Classification classification = new Classification();
+
+                //setting Classifications table from DB
+                classification.center_classification_date = enforcement[i].center_classification_date;
+                classification.classification = enforcement[i].classification;
+                
+
+                //setting Recalls table from DB
+                re.reason_for_recall = enforcement[i].reason_for_recall;
+                re.code_info = enforcement[i].code_info;
+                re.product_quantity = enforcement[i].product_quantity;
+                re.distribution_pattern = enforcement[i].distribution_pattern;
+                re.product_description = enforcement[i].product_description;
+                re.report_date = enforcement[i].report_date;
+                re.recall_number = enforcement[i].recall_number;
+                re.recalling_firm = enforcement[i].recalling_firm;
+                re.initial_firm_notification = enforcement[i].initial_firm_notification;
+                re.event_id = enforcement[i].event_id;
+                re.product_type = enforcement[i].product_type;
+                re.termination_date = enforcement[i].termination_date;
+                re.recall_initiation_date = enforcement[i].recall_initiation_date;
+                re.voluntary_mandated = enforcement[i].voluntary_mandated;
+
+                //setting Location table from DB
+                loc.recalling_firm = enforcement[i].recalling_firm;
+                loc.postal_code = enforcement[i].postal_code;
+                loc.country = enforcement[i].country;
+                loc.city = enforcement[i].city;
+                loc.address_1 = enforcement[i].address_1;
+                loc.address_2 = enforcement[i].address_2;
+                loc.state = enforcement[i].state;
+
+                /*re.classification = classification;
+                re.location = loc;*/
+                re.classification = classification;
+                re.location = loc;
+
+                dbContext.Recalls.Add(re);
+            }
+
+            dbContext.SaveChanges();
+            return View();
+        }
+
 
         
         public IActionResult Privacy()
