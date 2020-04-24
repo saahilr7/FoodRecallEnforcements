@@ -1,0 +1,111 @@
+﻿@model IEnumerable<FoodRecallEnforcements.Models.Recall>
+
+    
+<p>
+    @using (Html.BeginForm("SearchBy", "Recall", FormMethod.Get))
+    {
+    <h3 style="color:midnightblue"> <b>Search By Criteria: </b> </h3>
+        <br />
+        @Html.RadioButton("searchBy", "Voluntary or Mandated", true) <text>Voluntary or Mandated by the FDA</text>
+        <br />
+        @Html.RadioButton("searchBy", "Recalling Firm") <text>Recalling Firm</text>
+        <br />
+        @Html.TextBox("search") <input type="submit" value="Search" />
+    }
+</p>
+
+<div>
+
+    <a style="color:ThreeDDarkShadow" asp-action="Index">Back to List</a>
+</div>
+<br />
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>
+                MODIFY
+            </th>
+            <th>
+                Recalling Firm
+            </th>
+
+            <th>
+                Voluntary or Mandated
+            </th>
+            <th>
+                Reason For Recall
+            </th>
+            <th>
+                Code Info
+            </th>
+
+            <th>
+                Product Description
+            </th>
+            <th>
+                Report Date
+            </th>
+            <th>
+                Recall Number
+            </th>
+
+
+
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model.Count() == 0)
+        {
+            <tr>
+                <td colspan="3" style="color:red">
+                    No Firm found.
+                </td>
+            </tr>
+        }
+        else
+        {
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <a asp-action="AddOrEdit" asp-route-id="@item.RecallId" class="text-black-50" onclick="return confirm('Authorized Access Only. Are you sure you want to continue?')">@*<i class="fa fa-marker fa-lg"></i>*@EDIT</a> |
+
+                        <a asp-action="Delete" asp-route-id="@item.RecallId" class="text-danger ml-1" onclick="return confirm('Are you sure you want to Delete this Incident?')">@*<i class="fa fa-trash-alt fa-lg"></i>*@DELETE</a>
+                    </td>
+                    <td>
+                        @item.recalling_firm
+                    </td>
+
+                    <td>
+                        @item.voluntary_mandated
+                    </td>
+                    <td>
+                        @item.reason_for_recall
+                    </td>
+                    <td>
+                        @item.code_info
+                    </td>
+
+                    <td>
+                        @item.product_description
+                    </td>
+                    <td>
+                        @item.report_date
+                    </td>
+                    <td>
+                        @item.recall_number
+                    </td>
+
+
+                </tr>
+            }
+        }
+
+
+
+    </tbody>
+</table>
+<div>
+
+    <a style="color:ThreeDDarkShadow" asp-action="Index">Back to List</a>
+</div>
