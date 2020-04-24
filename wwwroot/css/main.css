@@ -23,8 +23,9 @@ body {
 .box {
     height: 110vh;
     width: 100%;
+    object-fit:contain;
     background-image: url(img0.jpg);
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     background-repeat: no-repeat;
     transition: 2s;

@@ -4,104 +4,119 @@
     ViewData["Title"] = "Index";
     //Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<style>
+    body {
+        min-width: 100%;
+        height: 100vh;
+        background-color:bisque;
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        display: table;
+        font-family: Quicksand;
+        overflow-x: scroll;
+    }
+</style>
+<body>
 
-<h1>Modify Food Recall Enforcements - CRUD </h1>
-<hr />
 
-<p>
-    <a asp-action="AddOrEdit" class="btn btn-outline-success"><i class="far fa-plus-square"></i>Add New Enforcement</a>
-</p>
-<br />
-<h4>Search By Firm:</h4>
-<p>
-@using (Html.BeginForm("SearchFirm","Recall", FormMethod.Get))
-{
-    @Html.TextBox("searching")<input type="submit" value="Search"/>
-}
-</p>
+    <h1 style="color:cyan"><b>Exploring Food Recall Enforcements </b> </h1>
+    <hr />
 
-<table class="table table-hover">
-    <thead>
-        <tr>
-            <th>
-                MODIFY
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.reason_for_recall)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.code_info)
-            </th>
+    <p>
+        <a asp-action="AddOrEdit" class="btn btn-outline-success"><i class="far fa-plus-square"></i>Add New Enforcement</a>
+    </p>
 
-            <th>
-                @Html.DisplayNameFor(model => model.product_description)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.report_date)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.recall_number)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.recalling_firm)
-            </th>
-
-            <th>
-                @Html.DisplayNameFor(model => model.voluntary_mandated)
-            </th>
-            @*<th>
-                @Html.DisplayNameFor(model => model.location)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.classification)
-            </th>*@
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
+    @*<h4><b> Search By Firm:</b></h4>
+        <p>
+        @using (Html.BeginForm("SearchFirm","Recall", FormMethod.Get))
         {
+            @Html.TextBox("searching")<input type="submit" value="Search"/>
+        }
+        </p>*@
+    <p>
+        @using (Html.BeginForm("SearchBy", "Recall", FormMethod.Get))
+        {
+            <b>Search By Criteria: </b>
+            <br />
+            @Html.RadioButton("searchBy", "Voluntary or Mandated", true) <text>Voluntary or Mandated by the FDA</text>
+            <br />
+            @Html.RadioButton("searchBy", "Recalling Firm") <text>Recalling Firm</text>
+            <br />
+            @Html.TextBox("search") <input type="submit" value="Search" />
+        }
+    </p>
+
+    <table class="table table-hover">
+        <thead>
             <tr>
-                <td>
-                    <a asp-action="AddOrEdit" asp-route-id="@item.RecallId" class="text-black-50" onclick="return confirm('Authorized Access Only. Are you sure you want to continue?')">@*<i class="fa fa-marker fa-lg"></i>*@EDIT</a> |
+                <th>
+                    MODIFY
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.recalling_firm)
+                </th>
 
-                    <a asp-action="Delete" asp-route-id="@item.RecallId" class="text-danger ml-1" onclick="return confirm('Are you sure you want to Delete this Incident?')">@*<i class="fa fa-trash-alt fa-lg"></i>*@DELETE</a>
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.reason_for_recall)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.code_info)
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.voluntary_mandated)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.reason_for_recall)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.code_info)
+                </th>
 
-                <td>
-                    @Html.DisplayFor(modelItem => item.product_description)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.report_date)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.recall_number)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.recalling_firm)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.voluntary_mandated)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.location.AddressId)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.classification.classificationId)
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.product_description)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.report_date)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.recall_number)
+                </th>
 
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        <a asp-action="AddOrEdit" asp-route-id="@item.RecallId" class="text-black-50" onclick="return confirm('Authorized Access Only. Are you sure you want to continue?')">@*<i class="fa fa-marker fa-lg"></i>*@EDIT</a> |
 
+                        <a asp-action="Delete" asp-route-id="@item.RecallId" class="text-danger ml-1" onclick="return confirm('Are you sure you want to Delete this Incident?')">@*<i class="fa fa-trash-alt fa-lg"></i>*@DELETE</a>
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.recalling_firm)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.voluntary_mandated)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.reason_for_recall)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.code_info)
+                    </td>
+
+                    <td>
+                        @Html.DisplayFor(modelItem => item.product_description)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.report_date)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.recall_number)
+                    </td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
 
 @*sdjadjdad
 

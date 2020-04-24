@@ -37,6 +37,15 @@ namespace FoodRecallEnforcements.Controllers
         {
             return View(_context.Recalls.Where(x => x.recalling_firm.Contains(searching) || searching == null).ToList().Take(10));
         }
+
+        //Search By Voluntary or Mandated
+        public ActionResult SearchBy(string searchBy, string search)
+        {
+            if (searchBy == "Voluntary or Mandated")
+                return View(_context.Recalls.Where(x => x.voluntary_mandated.Contains(search) || search == null).ToList().Take(10));
+            else
+                return View(_context.Recalls.Where(x => x.recalling_firm.Contains(search) || search == null).ToList().Take(10));
+        }
  
 
         // GET: Recall/AddOrEdit
