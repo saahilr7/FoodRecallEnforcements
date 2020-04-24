@@ -52,12 +52,14 @@ namespace FoodRecallEnforcements.Controllers
 
 
             List<Enforcement> enforcement = dbContext.Enforcements.ToList();
-           
+
+            var results = enforcement.Take(10);
 
             //var webClient = new WebClient();
             //var json = webClient.DownloadString(@"C:\Users\saahi\source\repos\FoodRecallEnforcements\wwwroot\lib\FoodJson");
             //var meta = JsonConvert.DeserializeObject<Enforcement>(json);
-            return View(enforcement);
+
+            return View(results);
         }
 
 

@@ -2,29 +2,37 @@
 
 @{
     ViewData["Title"] = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h1>Index</h1>
+<h1>Modify Food Recall Enforcements - CRUD </h1>
+<hr />
 
 <p>
-    <a asp-action="AddOrEdit">Create New</a>
+    <a asp-action="AddOrEdit" class="btn btn-outline-success"><i class="far fa-plus-square"></i>Add New Enforcement</a>
 </p>
-<table class="table">
+<br />
+<h4>Search By Firm:</h4>
+<p>
+@using (Html.BeginForm("SearchFirm","Recall", FormMethod.Get))
+{
+    @Html.TextBox("searching")<input type="submit" value="Search"/>
+}
+</p>
+
+<table class="table table-hover">
     <thead>
         <tr>
+            <th>
+                MODIFY
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.reason_for_recall)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.code_info)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.product_quantity)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.distribution_pattern)
-            </th>
+
             <th>
                 @Html.DisplayNameFor(model => model.product_description)
             </th>
@@ -37,7 +45,80 @@
             <th>
                 @Html.DisplayNameFor(model => model.recalling_firm)
             </th>
+
             <th>
+                @Html.DisplayNameFor(model => model.voluntary_mandated)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.classification)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    <a asp-action="AddOrEdit" asp-route-id="@item.RecallId" class="text-black-50" onclick="return confirm('Authorized Access Only. Are you sure you want to continue?')">@*<i class="fa fa-marker fa-lg"></i>*@EDIT</a> |
+
+                    <a asp-action="Delete" asp-route-id="@item.RecallId" class="text-danger ml-1" onclick="return confirm('Are you sure you want to Delete this Incident?')">@*<i class="fa fa-trash-alt fa-lg"></i>*@DELETE</a>
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.reason_for_recall)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.code_info)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.product_description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.report_date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.recall_number)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.recalling_firm)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.voluntary_mandated)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.location.AddressId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.classification.classificationId)
+                </td>
+
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+@*sdjadjdad
+
+    <th>
+               @Html.DisplayNameFor(model => model.product_quantity)
+           </th>
+           <th>
+               @Html.DisplayNameFor(model => model.distribution_pattern)
+           </th>
+
+
+
+
+
+
+
+    <th>
                 @Html.DisplayNameFor(model => model.initial_firm_notification)
             </th>
             <th>
@@ -52,75 +133,47 @@
             <th>
                 @Html.DisplayNameFor(model => model.recall_initiation_date)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.voluntary_mandated)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.location)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.classification)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.reason_for_recall)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.code_info)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.product_quantity)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.distribution_pattern)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.product_description)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.report_date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.recall_number)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.recalling_firm)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.initial_firm_notification)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.event_id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.product_type)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.termination_date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.recall_initiation_date)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.voluntary_mandated)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.location.AddressId)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.classification.classificationId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.RecallId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.RecallId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.RecallId">Delete</a>
-            </td>
-        </tr>
-}
-    </tbody>
-</table>
+
+
+
+
+
+
+
+
+
+
+
+
+*@
+
+
+
+@*<td>
+        @Html.DisplayFor(modelItem => item.product_quantity)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.distribution_pattern)
+    </td>
+
+
+
+
+     <td>
+                    @Html.DisplayFor(modelItem => item.initial_firm_notification)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.event_id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.product_type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.termination_date)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.recall_initiation_date)
+                </td>
+
+
+*@

@@ -22,48 +22,48 @@ namespace FoodRecallEnforcements.Controllers
         // GET: Recall
         public async Task<IActionResult> Index()
         {
-            var applicationDbContext = _context.Recalls.Include(r => r.classification).Include(r => r.location);
+            var applicationDbContext = _context.Recalls.Include(r => r.classification).Include(r => r.location).Take(10);
             return View(await applicationDbContext.ToListAsync());
+
+            //List<Enforcement> enforcement = dbContext.Enforcements.ToList();
+
+            //var results = enforcement.Take(10);
+            //return View(results);
         }
 
-        // GET: Recall/Details/5
-        public async Task<IActionResult> Details(int? id)
+
+        //SEARCH BY FIRM
+        public IActionResult SearchFirm(string searching)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var recall = await _context.Recalls
-                .Include(r => r.classification)
-                .Include(r => r.location)
-                .FirstOrDefaultAsync(m => m.RecallId == id);
-            if (recall == null)
-            {
-                return NotFound();
-            }
-
-            return View(recall);
+            return View(_context.Recalls.Where(x => x.recalling_firm.Contains(searching) || searching == null).ToList().Take(10));
         }
+ 
 
-        // GET: Recall/Create
+        // GET: Recall/AddOrEdit
         public IActionResult AddOrEdit(int id=0)
         {
             ViewData["ClassificationId"] = new SelectList(_context.Classifications, "classificationId", "classificationId");
             ViewData["LocationId"] = new SelectList(_context.Locations, "AddressId", "AddressId");
-            return View(new Recall());
+
+            if (id == 0)
+                return View(new Recall());
+            else
+                return View(_context.Recalls.Find(id));
         }
 
-        // POST: Recall/Create
+        // POST: Recall/AddOrEdit
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("RecallId,reason_for_recall,code_info,product_quantity,distribution_pattern,product_description,report_date,recall_number,recalling_firm,initial_firm_notification,event_id,product_type,termination_date,recall_initiation_date,voluntary_mandated,LocationId,ClassificationId")] Recall recall)
+        public async Task<IActionResult> AddOrEdit([Bind("RecallId,reason_for_recall,code_info,product_quantity,distribution_pattern,product_description,report_date,recall_number,recalling_firm,initial_firm_notification,event_id,product_type,termination_date,recall_initiation_date,voluntary_mandated,LocationId,ClassificationId")] Recall recall)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(recall);
+                if (recall.RecallId == 0)
+                    _context.Add(recall);
+                else
+                    _context.Update(recall);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
@@ -72,91 +72,17 @@ namespace FoodRecallEnforcements.Controllers
             return View(recall);
         }
 
-        // GET: Recall/Edit/5
-        public async Task<IActionResult> Edit(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var recall = await _context.Recalls.FindAsync(id);
-            if (recall == null)
-            {
-                return NotFound();
-            }
-            ViewData["ClassificationId"] = new SelectList(_context.Classifications, "classificationId", "classificationId", recall.ClassificationId);
-            ViewData["LocationId"] = new SelectList(_context.Locations, "AddressId", "AddressId", recall.LocationId);
-            return View(recall);
-        }
-
-        // POST: Recall/Edit/5
-        // To protect from overposting attacks, enable the specific properties you want to bind to, for 
-        // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("RecallId,reason_for_recall,code_info,product_quantity,distribution_pattern,product_description,report_date,recall_number,recalling_firm,initial_firm_notification,event_id,product_type,termination_date,recall_initiation_date,voluntary_mandated,LocationId,ClassificationId")] Recall recall)
-        {
-            if (id != recall.RecallId)
-            {
-                return NotFound();
-            }
-
-            if (ModelState.IsValid)
-            {
-                try
-                {
-                    _context.Update(recall);
-                    await _context.SaveChangesAsync();
-                }
-                catch (DbUpdateConcurrencyException)
-                {
-                    if (!RecallExists(recall.RecallId))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
-                        throw;
-                    }
-                }
-                return RedirectToAction(nameof(Index));
-            }
-            ViewData["ClassificationId"] = new SelectList(_context.Classifications, "classificationId", "classificationId", recall.ClassificationId);
-            ViewData["LocationId"] = new SelectList(_context.Locations, "AddressId", "AddressId", recall.LocationId);
-            return View(recall);
-        }
-
+   
         // GET: Recall/Delete/5
         public async Task<IActionResult> Delete(int? id)
-        {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var recall = await _context.Recalls
-                .Include(r => r.classification)
-                .Include(r => r.location)
-                .FirstOrDefaultAsync(m => m.RecallId == id);
-            if (recall == null)
-            {
-                return NotFound();
-            }
-
-            return View(recall);
-        }
-
-        // POST: Recall/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var recall = await _context.Recalls.FindAsync(id);
             _context.Recalls.Remove(recall);
             await _context.SaveChangesAsync();
+
             return RedirectToAction(nameof(Index));
         }
+
 
         private bool RecallExists(int id)
         {
