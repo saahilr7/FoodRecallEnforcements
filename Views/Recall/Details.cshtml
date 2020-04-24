@@ -1,0 +1,115 @@
+﻿@model FoodRecallEnforcements.Models.Recall
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Recall</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.reason_for_recall)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.reason_for_recall)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.code_info)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.code_info)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.product_quantity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.product_quantity)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.distribution_pattern)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.distribution_pattern)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.product_description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.product_description)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.report_date)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.report_date)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.recall_number)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.recall_number)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.recalling_firm)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.recalling_firm)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.initial_firm_notification)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.initial_firm_notification)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.event_id)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.event_id)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.product_type)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.product_type)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.termination_date)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.termination_date)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.recall_initiation_date)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.recall_initiation_date)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.voluntary_mandated)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.voluntary_mandated)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.location)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.location.AddressId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.classification)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.classification.classificationId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.RecallId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

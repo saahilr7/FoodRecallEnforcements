@@ -1,0 +1,110 @@
+﻿@model FoodRecallEnforcements.Models.Recall
+
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Edit</h1>
+
+<h4>Recall</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="RecallId" />
+            <div class="form-group">
+                <label asp-for="reason_for_recall" class="control-label"></label>
+                <input asp-for="reason_for_recall" class="form-control" />
+                <span asp-validation-for="reason_for_recall" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="code_info" class="control-label"></label>
+                <input asp-for="code_info" class="form-control" />
+                <span asp-validation-for="code_info" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="product_quantity" class="control-label"></label>
+                <input asp-for="product_quantity" class="form-control" />
+                <span asp-validation-for="product_quantity" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="distribution_pattern" class="control-label"></label>
+                <input asp-for="distribution_pattern" class="form-control" />
+                <span asp-validation-for="distribution_pattern" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="product_description" class="control-label"></label>
+                <input asp-for="product_description" class="form-control" />
+                <span asp-validation-for="product_description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="report_date" class="control-label"></label>
+                <input asp-for="report_date" class="form-control" />
+                <span asp-validation-for="report_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="recall_number" class="control-label"></label>
+                <input asp-for="recall_number" class="form-control" />
+                <span asp-validation-for="recall_number" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="recalling_firm" class="control-label"></label>
+                <input asp-for="recalling_firm" class="form-control" />
+                <span asp-validation-for="recalling_firm" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="initial_firm_notification" class="control-label"></label>
+                <input asp-for="initial_firm_notification" class="form-control" />
+                <span asp-validation-for="initial_firm_notification" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="event_id" class="control-label"></label>
+                <input asp-for="event_id" class="form-control" />
+                <span asp-validation-for="event_id" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="product_type" class="control-label"></label>
+                <input asp-for="product_type" class="form-control" />
+                <span asp-validation-for="product_type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="termination_date" class="control-label"></label>
+                <input asp-for="termination_date" class="form-control" />
+                <span asp-validation-for="termination_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="recall_initiation_date" class="control-label"></label>
+                <input asp-for="recall_initiation_date" class="form-control" />
+                <span asp-validation-for="recall_initiation_date" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="voluntary_mandated" class="control-label"></label>
+                <input asp-for="voluntary_mandated" class="form-control" />
+                <span asp-validation-for="voluntary_mandated" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LocationId" class="control-label"></label>
+                <select asp-for="LocationId" class="form-control" asp-items="ViewBag.LocationId"></select>
+                <span asp-validation-for="LocationId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ClassificationId" class="control-label"></label>
+                <select asp-for="ClassificationId" class="form-control" asp-items="ViewBag.ClassificationId"></select>
+                <span asp-validation-for="ClassificationId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

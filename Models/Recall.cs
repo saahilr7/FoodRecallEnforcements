@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -23,6 +24,8 @@ namespace FoodRecallEnforcements.Models
         
  
         public string recall_number { get; set; }
+
+        [Column(TypeName = "nvarchar(250)")]
         public string recalling_firm { get; set; }
         public string initial_firm_notification { get; set; }
         public string event_id { get; set; }
