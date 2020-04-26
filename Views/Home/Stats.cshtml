@@ -1,0 +1,38 @@
+﻿@{
+    Layout = null;
+}
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js">
+</script>
+<div id="chartContainer" style="height: 100%; width: 150%; overflow:auto;"></div>
+
+
+<a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+
+<script type="text/javascript">
+
+    window.onload = function () {
+        var chart = new CanvasJS.Chart("chartContainer", {
+animationEnabled: true,
+title: {
+text: "North America State-wise Count of Recalls"
+},
+subtitles: [{
+text: ""
+            }],
+axisX: {
+interval:  1
+},
+
+axisY: {
+title: "Count",
+},
+data: [{
+type: "column",
+dataPoints: @Html.Raw(ViewBag.DataPoints)
+}]
+});
+        chart.render();
+    };
+</script>
+
+

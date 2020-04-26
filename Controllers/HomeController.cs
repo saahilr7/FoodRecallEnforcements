@@ -182,10 +182,30 @@ namespace FoodRecallEnforcements.Controllers
             public int Voluntary { get; set; }
             public int Mandated { get; set; }
         }
-        
 
-        
-        public IActionResult Privacy()
+
+        public IActionResult Stats()
+        {
+
+            List<Location> Locations = dbContext.Locations.ToList();
+            var states = dbContext.States.Select(m => m.State_Code).Distinct();
+            int[] datacount = new int[states.Count()];
+            int c = 0;
+            List<DataPoint> dataPoints = new List<DataPoint>();
+            foreach (string state in states)
+            {
+
+
+                int count = dbContext.States.Where(t => t.State_Code == state).Count();
+                dataPoints.Add(new DataPoint(state, count));
+
+            }
+            ViewBag.DataPoints = JsonConvert.SerializeObject(dataPoints);
+
+            return View(datacount);
+        }
+
+            public IActionResult Privacy()
         {
             return View();
         }
