@@ -70,6 +70,10 @@ namespace FoodRecallEnforcements.Models
         public State State { get; set; }
         
         public int StateId { get; set; }
+
+        public Firm Firm { get; set; }
+
+        public int FirmId { get; set; }
     }
 
 }

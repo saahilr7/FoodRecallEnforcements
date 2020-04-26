@@ -103,6 +103,7 @@ namespace FoodRecallEnforcements.Controllers
                 Location loc = new Location();
                 Classification classification = new Classification();
                 State state = new State();
+                Firm firm = new Firm();
 
                 //setting Classifications table from DB
                 classification.center_classification_date = enforcement[i].center_classification_date;
@@ -125,6 +126,10 @@ namespace FoodRecallEnforcements.Controllers
                 re.recall_initiation_date = enforcement[i].recall_initiation_date;
                 re.voluntary_mandated = enforcement[i].voluntary_mandated;
 
+
+                //Setting Firms table from DB
+                firm.recalling_firm = enforcement[i].recalling_firm;
+
                 //setting Location table from DB
                 
                 loc.postal_code = enforcement[i].postal_code;
@@ -132,7 +137,7 @@ namespace FoodRecallEnforcements.Controllers
                 loc.city = enforcement[i].city;
                 loc.address_1 = enforcement[i].address_1;
                 loc.address_2 = enforcement[i].address_2;
-                
+                //loc.state = enforcement[i].state;
 
                 //setting State table from DB
                 state.State_Code = enforcement[i].state;
@@ -143,6 +148,7 @@ namespace FoodRecallEnforcements.Controllers
                 re.classification = classification;
                 re.location = loc;
                 re.State = state;
+                re.Firm = firm;
 
                 dbContext.Recalls.Add(re);
             }

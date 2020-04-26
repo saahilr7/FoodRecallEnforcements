@@ -26,5 +26,9 @@ namespace FoodRecallEnforcements.DataAccess
         public DbSet<Recall> Recalls { get; set; }
 
         public DbSet<Classification> Classifications { get; set; }
+
+        public DbSet<State> States { get; set; }
+
+        public DbSet<Firm> Firms { get; set; }
     }
 }
