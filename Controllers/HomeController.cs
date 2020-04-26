@@ -102,6 +102,7 @@ namespace FoodRecallEnforcements.Controllers
                 Recall re = new Recall();
                 Location loc = new Location();
                 Classification classification = new Classification();
+                State state = new State();
 
                 //setting Classifications table from DB
                 classification.center_classification_date = enforcement[i].center_classification_date;
@@ -125,18 +126,23 @@ namespace FoodRecallEnforcements.Controllers
                 re.voluntary_mandated = enforcement[i].voluntary_mandated;
 
                 //setting Location table from DB
-                loc.recalling_firm = enforcement[i].recalling_firm;
+                
                 loc.postal_code = enforcement[i].postal_code;
                 loc.country = enforcement[i].country;
                 loc.city = enforcement[i].city;
                 loc.address_1 = enforcement[i].address_1;
                 loc.address_2 = enforcement[i].address_2;
-                loc.state = enforcement[i].state;
+                
+
+                //setting State table from DB
+                state.State_Code = enforcement[i].state;
+                
 
                 /*re.classification = classification;
                 re.location = loc;*/
                 re.classification = classification;
                 re.location = loc;
+                re.State = state;
 
                 dbContext.Recalls.Add(re);
             }
@@ -145,6 +151,32 @@ namespace FoodRecallEnforcements.Controllers
             return View();
         }
 
+        public ActionResult Dashboard()
+        {
+            //int voluntary = dbContext.Recalls.Where(x => x.voluntary_mandated == "Voluntary: Firm Initiated").Count();
+            //int mandated = dbContext.Recalls.Where(x => x.voluntary_mandated == "FDA Mandated").Count();
+
+            List<int> reps = new List<int>();
+            var count = dbContext.Recalls.Select(x => x.voluntary_mandated).Distinct();
+            
+            foreach (var item in count)
+            {
+                reps.Add(dbContext.Recalls.Count(x => x.voluntary_mandated == item));
+            }
+
+            var rep = reps;
+            ViewBag.COUNT = count;
+            ViewBag.REP = reps.ToList();
+
+            return View();
+        }
+
+        public class Ratio
+        {
+            public int Voluntary { get; set; }
+            public int Mandated { get; set; }
+        }
+        
 
         
         public IActionResult Privacy()

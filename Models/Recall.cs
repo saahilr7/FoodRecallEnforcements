@@ -67,5 +67,10 @@ namespace FoodRecallEnforcements.Models
         [DisplayName("Classification Id")]
         public int ClassificationId { get; set; }
 
+        public State State { get; set; }
+        
+        public int StateId { get; set; }
     }
+
 }
+
