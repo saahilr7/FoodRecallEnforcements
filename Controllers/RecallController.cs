@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using FoodRecallEnforcements.DataAccess;
 using FoodRecallEnforcements.Models;
+using System.Dynamic;
+using Newtonsoft.Json;
 
 namespace FoodRecallEnforcements.Controllers
 {
@@ -93,7 +95,33 @@ namespace FoodRecallEnforcements.Controllers
         }
 
 
+        public IActionResult Visualize()
+        {
 
+            List<Location> Locations = _context.Locations.ToList();
+            var states = _context.States.Select(m => m.State_Code).Distinct();
+            //int[] datacount = new int[states.Count()];
+            //int c = 0;
+            //List<DataPoint> dataPoints = new List<DataPoint>();
+            List<string> State_Code = new List<string>();
+            List<int> points = new List<int>();
+            foreach (string state in states)
+            {
+
+
+                int count = _context.States.Where(t => t.State_Code == state).Count();
+                State_Code.Add(state);
+                points.Add(count);
+
+            }
+            dynamic model = new ExpandoObject();
+            model.State_Code = JsonConvert.SerializeObject(State_Code);
+          
+            model.points = JsonConvert.SerializeObject(points);
+            // ViewBag.DataPoints = JsonConvert.SerializeObject(dataPoints);
+
+            return View(model);
+        }
 
         private bool RecallExists(int id)
         {

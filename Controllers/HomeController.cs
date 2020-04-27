@@ -12,6 +12,7 @@ using Newtonsoft.Json;
 using Microsoft.EntityFrameworkCore;
 using FoodRecallEnforcements.DataAccess;
 using System.Net.Http;
+using System.Dynamic;
 
 namespace FoodRecallEnforcements.Controllers
 {
@@ -184,26 +185,7 @@ namespace FoodRecallEnforcements.Controllers
         }
 
 
-        public IActionResult Stats()
-        {
-
-            List<Location> Locations = dbContext.Locations.ToList();
-            var states = dbContext.States.Select(m => m.State_Code).Distinct();
-            int[] datacount = new int[states.Count()];
-            int c = 0;
-            List<DataPoint> dataPoints = new List<DataPoint>();
-            foreach (string state in states)
-            {
-
-
-                int count = dbContext.States.Where(t => t.State_Code == state).Count();
-                dataPoints.Add(new DataPoint(state, count));
-
-            }
-            ViewBag.DataPoints = JsonConvert.SerializeObject(dataPoints);
-
-            return View(datacount);
-        }
+        
 
             public IActionResult Privacy()
         {

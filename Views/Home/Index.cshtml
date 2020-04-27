@@ -16,8 +16,8 @@
 
 
 <body>
-    <div>
-        <h1 style="color:aqua">Food Recall Enforcement Overview</h1>
+    <div class="FDA">
+        <h1 style="color:aqua" font-size="40px">Food Recall Enforcement </h1>
 
 
         <a style="color:chartreuse" class="nav-link" asp-area="" asp-controller="Recall" asp-action="Index">View Enforcement Details</a>
@@ -31,13 +31,22 @@
     <div style="color:aliceblue">
         <h2 style="color:aqua"> Recall Classifications </h2>
 
+        <p>
+            Food Recall Enforcements can be classified according to these factors:
+        </p>
         <ol>
             <li> Class I: Dangerous or defective products that predictably could cause serious health problems or death. Examples include: food found to contain botulinum toxin, food with undeclared allergens, a label mix-up on a lifesaving drug, or a defective artificial heart valve.</li>
             <li>Class II: Products that might cause a temporary health problem, or pose only a slight threat of a serious nature. Example: a drug that is under-strength but that is not used to treat life-threatening situations.</li>
             <li>Class III: Products that are unlikely to cause any adverse health reaction, but that violate FDA labeling or manufacturing laws. Examples include: a minor container defect and lack of English labeling in a retail food.</li>
         </ol>
     </div>
-
+    <div>
+        <p style="color:aliceblue">
+            To find out more, please follow this link:
+            <a style="color:aliceblue" asp-area="" asp-controller="Home" asp-action="AboutProject">FDA Food Recall Specifics</a>
+        </p>
+    </div>
+    <br />
 </body>
 
 </html>

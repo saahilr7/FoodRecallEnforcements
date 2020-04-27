@@ -1,0 +1,83 @@
+﻿@*<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h1>State-wise Count of Recalls in North America</h1>
+        <div><a href="#">  <img src="~/img/s1.png" alt="data model" object-fit:contain width:100% class="img-responsive" height: 100%> </a></div>
+
+        <br />
+        <h1>Recalls that were Mandatory vs Voluntary Recalls</h1>
+        <div><a href="#">  <img src="~/img/s2.png" alt="data model" object-fit:contain width:100% class="img-responsive" height: 100%> </a></div>
+
+
+    </body>
+    </html>*@
+
+
+@{
+    ViewData["Title"] = "Graphs";
+}
+<head>
+    <script src='https://cdn.plot.ly/plotly-latest.min.js'></script>
+    <style>
+        .jumbotron {
+            padding: 0rem 0rem;
+            text-align: center;
+        }
+    </style>
+</head>
+<div class="jumbotron">
+    <h1 class="display-4">State-wise count of Recalls in North America</h1>
+    <p class="lead">Encompasses over 18,000 recalls</p>
+</div>
+<div class="main">
+    <div class="content">
+        <div id='myDiv'><!-- Plotly chart will be drawn inside this DIV --></div>
+    </div>
+</div>
+<script type="text/javascript">
+    Plotly.d3.csv("https://raw.githubusercontent.com/gokul1794/assn2-cps/master/csr.csv", function (err, rows) {
+        function unpack(rows, key) {
+            return rows.map(function (row) { return row[key]; });
+        }
+        var trace1 = {
+            type: "bar",
+            mode: "lines",
+            x: ["TX", "KS", "WI", "PA", "DE", "IN", "IL", "NH", "MD", "CO", "DC", "Quebec", "MI", "VA", "ME", "AK", "SC", "RI", "WA", "MA", "Ontario", "NV", "NY", "OH", "SD", "CT", "LA", "Nova Scotia", "MO", "NJ", "CA", "OR", "MN", "MT", "Alberta", "", "PR", "OK", "British Columbia", "FL", "AR", "New Brunswick", "IA", "VT", "AL", "ND", "ID", "GA", "AZ", "MS", "TN", "NC", "NE", "WV", "WY", "HI", "NM", "KY", "UT"]
+            ,
+            /**/
+            y: [1319,182,1110,654,22,197,1039,223,159,197,5,1,1105,121,61,52,41,40,964,755,3,67,914,660,2,88,42,6,255,648,2277,702,606,14,2,138,182,44,2,818,30,1,267,47,25,97,140,301,167,26,152,355,67,6,5,65,290,148,94],
+    /**/
+    name: 'Spending Rate',
+    //x: unpack(rows, 'time_slot_date'),
+    //y: unpack(rows, 'cell_value'),
+    line: { color: '#00A388' }
+}
+
+/*var trace2 = {
+  type: "scatter",
+  mode: "lines",
+  x: unpack(rows, 'Date'),
+  y: unpack(rows, 'AAPL.Low'),
+  line: {color: '#7F7F7F'}
+}*/
+//var data = [trace1,trace2];
+var data = [trace1];
+var layout = {
+    title: 'States in North America',
+    xaxis: {
+        // range: ['2002-01', '2019-12'],
+        //  type: 'date'
+    },
+    yaxis: {
+        autorange: true,
+        //range: [86.8700008333, 138.870004167],
+        type: 'linear'
+    }
+};
+
+var config = { responsive: true }
+Plotly.newPlot('myDiv', data, layout, config);
+})
+</script>

@@ -5,6 +5,18 @@ html, body {
 }
 
 
+.FDA {
+    align-content: center;
+    width: 600px;
+    margin: 0px auto;
+}
+
+    .FDA a:hover {
+        width: 290px;
+        background: #fff;
+        color: #333;
+    }
+
 
 body {
     margin: 0;
@@ -64,5 +76,139 @@ body {
 
     100% {
         background-image: url(fda4.jpg);
+    }
+}
+
+
+@media screen and (max-width:959px) {
+
+    .FDA {
+        width: 70%;
+        margin: 0 auto;
+        padding: 0;
+    }
+
+    .box {
+        width: 30%;
+    }
+
+    @keyframes animate {
+        0% {
+            background-image: url(img3.jpeg);
+            width: 100%;
+        }
+
+        20% {
+            background-image: url(img0.jpg);
+            width: 100%;
+        }
+
+        40% {
+            background-image: url(covid19.jpg);
+            width: 100%;
+        }
+
+        60% {
+            background-image: url(fda2.jpg);
+            width: 100%;
+        }
+
+        80% {
+            background-image: url(fda3.png);
+            width: 100%;
+        }
+
+        100% {
+            background-image: url(fda4.jpg);
+            width: 100%;
+        }
+    }
+
+    @media screen and (max-width:640px) {
+        .FDA {
+            width: 70%;
+            margin: 0 auto;
+            padding: 0;
+        }
+
+        .box {
+            width: 30%;
+        }
+
+        @keyframes animate {
+            0% {
+                background-image: url(img3.jpeg);
+                width: 100%;
+            }
+
+            20% {
+                background-image: url(img0.jpg);
+                width: 100%;
+            }
+
+            40% {
+                background-image: url(covid19.jpg);
+                width: 100%;
+            }
+
+            60% {
+                background-image: url(fda2.jpg);
+                width: 100%;
+            }
+
+            80% {
+                background-image: url(fda3.png);
+                width: 100%;
+            }
+
+            100% {
+                background-image: url(fda4.jpg);
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width:375px) {
+            .FDA {
+                width: 70%;
+                margin: 0 auto;
+                padding: 0;
+            }
+
+            .box {
+                width: 30%;
+            }
+
+            @keyframes animate {
+                0% {
+                    background-image: url(img3.jpeg);
+                    width: 100%;
+                }
+
+                20% {
+                    background-image: url(img0.jpg);
+                    width: 100%;
+                }
+
+                40% {
+                    background-image: url(covid19.jpg);
+                    width: 100%;
+                }
+
+                60% {
+                    background-image: url(fda2.jpg);
+                    width: 100%;
+                }
+
+                80% {
+                    background-image: url(fda3.png);
+                    width: 100%;
+                }
+
+                100% {
+                    background-image: url(fda4.jpg);
+                    width: 100%;
+                }
+            }
+        }
     }
 }
